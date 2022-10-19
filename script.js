@@ -18,14 +18,72 @@ var x = setInterval(function() {
   document.querySelector(".days_number").innerHTML = days;
   document.querySelector(".hours_number").innerHTML = hours;
   document.querySelector(".minutes_number").innerHTML = minutes;
-  document.querySelector(".seconds_number").innerHTML = seconds;     
-//   // Display the result in the element with id="demo"
-//   document.getElementById("demo").innerHTML = days + "d " + hours + "h "
-//   + minutes + "m " + seconds + "s ";
+  document.querySelector(".seconds_number").innerHTML = seconds;   
+  
+  if(document.querySelector(".days_number").innerHTML < 10) {
+    document.querySelector(".days_number").innerHTML = `0${days}`
+  }
+  
+  if(document.querySelector(".hours_number").innerHTML < 10) {
+    document.querySelector(".hours_number").innerHTML = `0${hours}`
+  }
 
-//   // If the count down is finished, write some text
-//   if (distance < 0) {
-//     clearInterval(x);
-//     document.getElementById("demo").innerHTML = "EXPIRED";
-//   }
+  if(document.querySelector(".minutes_number").innerHTML < 10) {
+    document.querySelector(".minutes_number").innerHTML = `0${minutes}`
+  }
+
+  if(document.querySelector(".seconds_number").innerHTML < 10) {
+    document.querySelector(".seconds_number").innerHTML = `0${days}`
+  }
+  
+  const rotate = (id) => {
+    document.getElementById(id).style.transform = "rotateX(90deg)";
+  };
+  
+  const rotateDefault = (id) => {
+    document.getElementById(id).style.transform = "rotateX(360deg)";
+  };
+  
+  rotate("seconds_id");
+  const delay = setTimeout(() => {
+    rotateDefault("seconds_id");
+  }, 200);
+
+  //minutes
+  if (seconds % 60 == 0) {
+    rotate("minutes_id");
+    const delay = setTimeout(() => {
+      rotateDefault("minutes_id");
+    }, 200);
+    if (distance <= 0) {
+      clearTimeout(delay);
+    }
+  }
+  //hours
+  if (seconds % (60 * 60) == 0) {
+    rotate("hours_id");
+    const delay = setTimeout(() => {
+      rotateDefault("hours_id");
+    }, 200);
+    if (distance <= 0) {
+      clearTimeout(delay);
+    }
+  }
+  //days
+  if (seconds % (60 * 60 * 24) == 0) {
+    rotate("days_id");
+    const delay = setTimeout(() => {
+      rotateDefault("days_id");
+    }, 200);
+    if (distance <= 0) {
+      clearTimeout(delay);
+    }
+  }
+
+  seconds++;
+  distance -= 1000;
+  if (distance <= 0) {
+    clearInterval(interval);
+    clearTimeout(delay);
+  }
 }, 1000);
