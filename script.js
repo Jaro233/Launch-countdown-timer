@@ -1,5 +1,5 @@
-var countDownDate = new Date("Jan 5, 2023 05:37:25").getTime();
-
+var countDownDate = new Date("Jan 5, 2023 05:38:00").getTime();
+let second = 0;
 // Update the count down every 1 second
 var x = setInterval(function() {
 
@@ -33,7 +33,7 @@ var x = setInterval(function() {
   }
 
   if(document.querySelector(".seconds_number").innerHTML < 10) {
-    document.querySelector(".seconds_number").innerHTML = `0${days}`
+    document.querySelector(".seconds_number").innerHTML = `0${seconds}`
   }
   
   const rotate = (id) => {
@@ -50,40 +50,54 @@ var x = setInterval(function() {
   }, 200);
 
   //minutes
-  if (seconds % 60 == 0) {
-    rotate("minutes_id");
+  if (document.querySelector(".seconds_number").innerHTML <= 0) {
     const delay = setTimeout(() => {
+      rotate("minutes_id");
+    }, 1000);
+    
+    const delay1 = setTimeout(() => {
       rotateDefault("minutes_id");
-    }, 200);
+    }, 1200);
     if (distance <= 0) {
       clearTimeout(delay);
+      clearTimeout(delay1);
     }
   }
   //hours
-  if (seconds % (60 * 60) == 0) {
-    rotate("hours_id");
+  if (document.querySelector(".minutes_number").innerHTML <= 0){
     const delay = setTimeout(() => {
+      rotate("hours_id");
+    }, 1000);
+    
+    const delay1 = setTimeout(() => {
       rotateDefault("hours_id");
-    }, 200);
+    }, 1200);
     if (distance <= 0) {
       clearTimeout(delay);
+      clearTimeout(delay1);
     }
   }
   //days
-  if (seconds % (60 * 60 * 24) == 0) {
-    rotate("days_id");
+  if (document.querySelector(".hours_number").innerHTML <= 0) {
     const delay = setTimeout(() => {
+      rotate("days_id");
+    }, 1000);
+    
+    const delay1 = setTimeout(() => {
       rotateDefault("days_id");
-    }, 200);
+    }, 1200);
     if (distance <= 0) {
       clearTimeout(delay);
+      clearTimeout(delay1);
     }
   }
 
-  seconds++;
+  console.log(second)
+
+  second++;
   distance -= 1000;
   if (distance <= 0) {
-    clearInterval(interval);
-    clearTimeout(delay);
+    clearInterval(x);
   }
 }, 1000);
+
