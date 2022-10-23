@@ -8,3 +8,9 @@
     font-size: 1.25rem;
     letter-spacing: 0.4375rem;
 }
+
+@media screen and (min-width: 768px) {
+    .big_text {
+        margin-top: 13.75rem;;
+    }
+}

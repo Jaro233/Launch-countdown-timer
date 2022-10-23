@@ -7,13 +7,14 @@ footer {
     justify-content: center;
     bottom: 0;
     width: 100%;
-    max-width: 100rem;
+    // max-width: 100rem;
     
     // display: flex;
     // position: absolute;
     // margin-top: 200px;
     background-image: url("../images/pattern-hills.svg");
     background-repeat: no-repeat;
+    background-size: cover;
     background-position-x: 78%;
     // background-position: 50%;
     height: 100%;
