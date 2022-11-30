@@ -60,6 +60,9 @@ span.tick-flip-back {
   .text {
     margin-top: 1.5rem;
   }
+  .all-divs {
+    gap: 2.5rem;
+  }
 }
 footer {
   position: absolute;
