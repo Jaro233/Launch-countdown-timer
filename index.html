@@ -6,6 +6,7 @@
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
   <link rel="stylesheet" href="./styles/style.css">
+  <link href="https://unpkg.com/@pqina/flip/dist/flip.min.css" rel="stylesheet">
   <title>Frontend Mentor | Launch countdown timer</title>
 
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
@@ -17,41 +18,40 @@
 <body>
   <main>
     <h1 class="big_text">We're launching soon</h1>
-    <div class="cards">
-      <div class="outside_card">
-        <div class="days card" id="days_id" data-days>
-          <div class="number days_number">08</div>
-          <!-- <div class="top">00</div>
-          <div class="bottom">00</div> -->
-        </div>
-        <div class="under__content days__under">DAYS</div>
-      </div>
-      <div class="outside_card">
-        <div class="hours card" id="hours_id" data-hours>
-          <div class="number hours_number">08</div>
-          <!-- <div class="top">00</div>
-          <div class="bottom">00</div> -->
-        </div>
-        <div class="under__content hours__under">HOURS</div>
-      </div>
-      <div class="outside_card">
-        <div class="minutes card" id="minutes_id" data-minutes>
-          <div class="number minutes_number">08</div>
-          <!-- <div class="top">00</div>
-          <div class="bottom">00</div> -->
-        </div>
-        <div class="under__content minutes__under">MINUTES</div>
-      </div>
-      <div class="outside_card">
-        <div class="seconds card" id="seconds_id" data-seconds>
-          <div class="number seconds_number">08</div>
-          <!-- <div class="top">00</div>
-          <div class="bottom">00</div> -->
-        </div>
-        <div class="under__content seconds__content">SECONDS</div>
-      </div>
-      
+    
+    <div class="tick-wrapper">
+      <div class="tick"
+      data-did-init="handleTickInit"
+      >
+       <div
+       class="all-divs"
+        data-repeat="true"
+          data-layout="horizontal center fit"
+          data-transform="preset(d, h, m, s) -> delay">
+         <div class="tick-group outside_card">
+             <div 
+             data-key="value"
+                  data-repeat="true"
+                  data-transform="pad(00) -> split -> delay">
+                 <span  data-view="flip" >
+                 
+                 </span>
+             </div>
+             <div class="text">
+               <span data-key="label"
+                   data-view="text"
+                   data-layout="horizontal center"
+                   class="tick-label under__content"
+                   >
+             </span>
+             </div>
+             
+         </div>
+       </div>
+     </div>
     </div>
+ 
+
     <footer>
       <ul>
         <li><img src="./images/icon-facebook.svg" alt="facebook"></li>
@@ -60,10 +60,8 @@
       </ul>
     </footer>
   </main>
-  <!-- <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div> -->
+
+  <script src="https://unpkg.com/@pqina/flip/dist/flip.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
